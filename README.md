@@ -75,3 +75,14 @@ st.video('./python-streamlit-files-main/video.mp4')
 
 Image supports adding captions, setting width etc. Audio and video have start time setting etc.
 
+## Button widget
+
+A `text_input` widget creates a text line and reads it with Enter pressing.
+
+A `button` widget has False/True conditions if pressed, it sets False if confirming new value in text_input.
+
+```python
+car = st.text_input('Type a car')
+button = st.button('Check Availability')
+st.write(car, button)
+```
