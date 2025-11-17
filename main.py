@@ -1,13 +1,17 @@
 import streamlit as st
 
-image_list = [
-    './python-streamlit-files-main/google.png',
-    './python-streamlit-files-main/youtube.png'
-]
-caption_list = ['Google','Youtube']
-st.image(
-    image=image_list,
-    caption=caption_list,
-    width=100
-)
-st.link_button('Go to Google start page', 'https://www.google.com/')
+if 'visibility' not in st.session_state:
+    st.session_state.visibility = False
+
+st.session_state.visibility = not st.checkbox('Visibility', value=st.session_state.visibility)
+
+radio_button = st.radio('Choose you course',
+                        ['HTML, CSS :rainbow:',
+                         'Linux :penguin:',
+                         'Python :snake:'],
+                        index=None,
+                        # key='visibility',
+                        disabled=st.session_state.visibility
+                        )
+if radio_button:
+    st.subheader(f'You chose {radio_button}')

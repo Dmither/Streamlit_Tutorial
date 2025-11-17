@@ -3,6 +3,10 @@
 From YouTube lessons on:
 https://www.youtube.com/watch?v=rMLwiVrK3Fw&list=PLMi6KgK4_mk2rK5jD-BK5RigFIP2QSq8W&index=2
 
+Resources:  
+Streamlit emoji: https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app  
+
+
 ## Creating App with Python Streamlit
 
 ```commandline
@@ -23,12 +27,14 @@ st.subheader('And a smaller subheader')
 st.text('Lorem ipsum dolor sit amet.')
 ```
 
+Text can change dynamically.
+
 ## Markdown, code and json
 
 ```python
 st.markdown('# Title 1')
 st.markdown('> blockquote section')
-st.code('print(\'Hello, World!\')')
+st.code('print(\'Hello, World!\')', language='python')
 person1 = {"name": "John", "surname": "Doe"}
 st.json(person1)
 ```
@@ -59,16 +65,14 @@ st.video('./python-streamlit-files-main/video.mp4')
 ## Text input, button, download button and link button
 
 A `text_input` widget creates a text line and reads it with Enter pressing.
-
 A `button` widget has False/True conditions if pressed, it sets False if confirming new value in text_input.
+A `download_button` allows to download a file with a specific name, and returns error if file is not found.
 
 ```python
 car = st.text_input('Type a car')
 button = st.button('Check Availability')
 st.write(car, button)
 ```
-
-A `download_button` allows to download a file with a specific name, and returns error if file is not found.
 
 ```python
 st.image('./python-streamlit-files-main/image.jpg', caption='image.jpg')
@@ -83,8 +87,42 @@ with open('./python-streamlit-files-main/image.jpg', 'rb') as file:
     )
 ```
 
-A `link_button` adds link to the page.
-
 ```python
 st.link_button('Go to Google start page', 'https://www.google.com/')
+```
+
+## Columns
+
+```python
+columns = st.columns(2)
+with columns[0]:
+    st.image('./python-streamlit-files-main/youtube.png', width=100)
+with columns[1]:
+    st.image('./python-streamlit-files-main/google.png', width=100)
+```
+
+## Checkboxes, toggles, radiobuttons
+
+```python
+checkbox = st.checkbox('Show code')
+if checkbox:
+    st.code('print(\'Hello, checkbox\')')
+toggle_code = st.toggle('Show code')
+if toggle_code:
+    st.code('print(\'Hello, toggle!\'')
+radio_button = st.radio('Choose you course',
+                        ['HTML, CSS :rainbow:',
+                         'Linux :penguin:',
+                         'Python :snake:'])
+st.write(f'You chose {radio_button}')
+```
+
+## Session state
+
+Streamlit rerun application all the time when something changes.
+Session state saves values during application work.
+
+```python
+if 'visibility' not in st.session_state:
+    st.session_state.visibility = False
 ```
