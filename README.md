@@ -11,6 +11,12 @@ Install and import streamlit
 import streamlit as st
 ```
 
+Run the server
+
+```commandline
+streamlit run ./main.py
+```
+
 Streamlit label methods:
 
 ```python
@@ -58,3 +64,14 @@ Metrics:
 st.metric(label='Win Speed',
           value='70ms', delta='5.7')
 ```
+
+## Media elements:
+
+```python
+st.image('./python-streamlit-files-main/image.jpg')
+st.audio('./python-streamlit-files-main/audio.oga')
+st.video('./python-streamlit-files-main/video.mp4')
+```
+
+Image supports adding captions, setting width etc. Audio and video have start time setting etc.
+

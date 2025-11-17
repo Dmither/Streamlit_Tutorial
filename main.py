@@ -1,10 +1,11 @@
 import streamlit as st
 
-table = ({'Column 1': [1, 2, 3, 4, 5],
-          'Column 2': [6, 7, 8, 9, 0]})
+st.image(
+    './python-streamlit-files-main/image.jpg',
+    caption='This is an image',
+    width=400,
 
-st.table(table)
-st.dataframe(table)
+)
 
-st.metric(label='Win Speed',
-          value='70ms', delta='5.7')
+st.audio('./python-streamlit-files-main/audio.oga')
+st.video('./python-streamlit-files-main/video.mp4')
