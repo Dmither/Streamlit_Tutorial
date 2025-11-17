@@ -75,6 +75,21 @@ st.video('./python-streamlit-files-main/video.mp4')
 
 Image supports adding captions, setting width etc. Audio and video have start time setting etc.
 
+List of images allows to add a few images in line.
+
+```python
+image_list = [
+    './python-streamlit-files-main/google.png',
+    './python-streamlit-files-main/youtube.png'
+]
+caption_list = ['Google','Youtube']
+st.image(
+    image=image_list,
+    caption=caption_list,
+    width=100
+)
+```
+
 ## Button widget
 
 A `text_input` widget creates a text line and reads it with Enter pressing.
@@ -102,4 +117,10 @@ with open('./python-streamlit-files-main/image.jpg', 'rb') as file:
         file_name=file_name,
         mime='image/file'
     )
+```
+
+## Link button
+
+```python
+st.link_button('Go to Google start page', 'https://www.google.com/')
 ```

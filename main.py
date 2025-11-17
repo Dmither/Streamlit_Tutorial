@@ -1,12 +1,13 @@
 import streamlit as st
 
-st.image('./python-streamlit-files-main/image.jpg', caption='image.jpg')
-file_name = st.text_input('Enter the file name:')
-st.write(file_name)
-with open('./python-streamlit-files-main/image.jpg', 'rb') as file:
-    btn = st.download_button(
-        label='Download Image',
-        data=file,
-        file_name=file_name,
-        mime='image/file'
-    )
+image_list = [
+    './python-streamlit-files-main/google.png',
+    './python-streamlit-files-main/youtube.png'
+]
+caption_list = ['Google','Youtube']
+st.image(
+    image=image_list,
+    caption=caption_list,
+    width=100
+)
+st.link_button('Go to Google start page', 'https://www.google.com/')
