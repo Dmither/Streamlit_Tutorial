@@ -5,19 +5,16 @@ https://www.youtube.com/watch?v=rMLwiVrK3Fw&list=PLMi6KgK4_mk2rK5jD-BK5RigFIP2QS
 
 ## Creating App with Python Streamlit
 
-Install and import streamlit
+```commandline
+pip install streamlit
+streamlit run ./main.py
+```
 
 ```python
 import streamlit as st
 ```
 
-Run the server
-
-```commandline
-streamlit run ./main.py
-```
-
-Streamlit label methods:
+## Display text
 
 ```python
 st.title('This is a title')
@@ -26,41 +23,23 @@ st.subheader('And a smaller subheader')
 st.text('Lorem ipsum dolor sit amet.')
 ```
 
-## Markdown elements
-
-It supports markdown features:
+## Markdown, code and json
 
 ```python
 st.markdown('# Title 1')
 st.markdown('> blockquote section')
-```
-
-Also, it has own method for code blocks:
-
-```python
 st.code('print(\'Hello, World!\')')
-```
-
-And for json blocks:
-
-```python
 person1 = {"name": "John", "surname": "Doe"}
 st.json(person1)
 ```
 
-## Display elements
-
-Tables:
+## Tables, dataframes and metrics
 
 ```python
 table = ({'Column 1': [1, 2, 3, 4, 5],
           'Column 2': [6, 7, 8, 9, 0]})
 st.table(table)
 st.dataframe(table)
-```
-
-Metrics:
-```python
 st.metric(label='Win Speed',
           value='70ms', delta='5.7')
 ```
@@ -69,28 +48,15 @@ st.metric(label='Win Speed',
 
 ```python
 st.image('./python-streamlit-files-main/image.jpg')
+image_list = ['./python-streamlit-files-main/google.png',
+    './python-streamlit-files-main/youtube.png']
+caption_list = ['Google','Youtube']
+st.image(image=image_list, caption=caption_list, width=100)
 st.audio('./python-streamlit-files-main/audio.oga')
 st.video('./python-streamlit-files-main/video.mp4')
 ```
 
-Image supports adding captions, setting width etc. Audio and video have start time setting etc.
-
-List of images allows to add a few images in line.
-
-```python
-image_list = [
-    './python-streamlit-files-main/google.png',
-    './python-streamlit-files-main/youtube.png'
-]
-caption_list = ['Google','Youtube']
-st.image(
-    image=image_list,
-    caption=caption_list,
-    width=100
-)
-```
-
-## Button widget
+## Text input, button, download button and link button
 
 A `text_input` widget creates a text line and reads it with Enter pressing.
 
@@ -102,9 +68,7 @@ button = st.button('Check Availability')
 st.write(car, button)
 ```
 
-## Download button
-
-Allows to download a file with a specific name, and returns error if file is not found.
+A `download_button` allows to download a file with a specific name, and returns error if file is not found.
 
 ```python
 st.image('./python-streamlit-files-main/image.jpg', caption='image.jpg')
@@ -119,7 +83,7 @@ with open('./python-streamlit-files-main/image.jpg', 'rb') as file:
     )
 ```
 
-## Link button
+A `link_button` adds link to the page.
 
 ```python
 st.link_button('Go to Google start page', 'https://www.google.com/')
