@@ -86,3 +86,20 @@ car = st.text_input('Type a car')
 button = st.button('Check Availability')
 st.write(car, button)
 ```
+
+## Download button
+
+Allows to download a file with a specific name, and returns error if file is not found.
+
+```python
+st.image('./python-streamlit-files-main/image.jpg', caption='image.jpg')
+file_name = st.text_input('Enter the file name:')
+st.write(file_name)
+with open('./python-streamlit-files-main/image.jpg', 'rb') as file:
+    btn = st.download_button(
+        label='Download Image',
+        data=file,
+        file_name=file_name,
+        mime='image/file'
+    )
+```
