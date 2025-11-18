@@ -110,10 +110,7 @@ if checkbox:
 toggle_code = st.toggle('Show code')
 if toggle_code:
     st.code('print(\'Hello, toggle!\'')
-radio_button = st.radio('Choose you course',
-                        ['HTML, CSS :rainbow:',
-                         'Linux :penguin:',
-                         'Python :snake:'])
+radio_button = st.radio('Choose:',['HTML','Linux','Python'])
 st.write(f'You chose {radio_button}')
 ```
 
@@ -125,4 +122,34 @@ Session state saves values during application work.
 ```python
 if 'visibility' not in st.session_state:
     st.session_state.visibility = False
+```
+
+## Select boxes and multiselects
+
+```python
+option = st.selectbox("Choose the option:", ["Option 1", "Option 2"])
+options = st.multiselect('Choose:',["Option 1", "Option 2"])
+```
+
+## Sliders and select sliders
+
+```python
+size = st.slider('Set the table size (persons)', 2, 6)
+months= st.select_slider('Months',options=[6, 12, 18, 24])
+```
+
+## Text number inputs, text area
+
+```python
+name = st.text_input('What is your name?')
+age = st.number_input('What is your age?', step=1)  # for int
+height = st.number_input('What is your height (m)?')
+text_area = st.text_area('Title', 'Default', placeholder='Hello')
+```
+
+## Date and time inputs
+
+```python
+date = st.date_input('Date:', min_value=datetime.date.today())
+time = st.time_input('Time:', None)
 ```

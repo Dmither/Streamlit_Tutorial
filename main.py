@@ -1,17 +1,5 @@
 import streamlit as st
+import datetime
 
-if 'visibility' not in st.session_state:
-    st.session_state.visibility = False
-
-st.session_state.visibility = not st.checkbox('Visibility', value=st.session_state.visibility)
-
-radio_button = st.radio('Choose you course',
-                        ['HTML, CSS :rainbow:',
-                         'Linux :penguin:',
-                         'Python :snake:'],
-                        index=None,
-                        # key='visibility',
-                        disabled=st.session_state.visibility
-                        )
-if radio_button:
-    st.subheader(f'You chose {radio_button}')
+date = st.date_input('Date:', min_value=datetime.date.today())
+time = st.time_input('Time:', None)
