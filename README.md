@@ -138,7 +138,7 @@ size = st.slider('Set the table size (persons)', 2, 6)
 months= st.select_slider('Months',options=[6, 12, 18, 24])
 ```
 
-## Text number inputs, text area
+## Text and number inputs, text area
 
 ```python
 name = st.text_input('What is your name?')
@@ -152,4 +152,11 @@ text_area = st.text_area('Title', 'Default', placeholder='Hello')
 ```python
 date = st.date_input('Date:', min_value=datetime.date.today())
 time = st.time_input('Time:', None)
+```
+
+## File uploader and color picker
+
+```python
+image = st.file_uploader('Choose an image:', type=['jpg','png'])
+color = st.color_picker('Pick a color', '#ffffff')
 ```
