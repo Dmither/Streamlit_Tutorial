@@ -160,3 +160,69 @@ time = st.time_input('Time:', None)
 image = st.file_uploader('Choose an image:', type=['jpg','png'])
 color = st.color_picker('Pick a color', '#ffffff')
 ```
+
+## Form
+
+```python
+with st.form('my_form'):
+    name = st.text_input('Name')
+    submitted = st.form_submit_button('Submit')
+if submitted:
+    st.write(f'Hello, {name}')
+```
+
+## Sidebar
+
+```python
+with st.sidebar:
+    add_input = st.text_input('Info')
+    send_button = st.button('Send')
+if send_button:
+    st.sidebar.write('Send button clicked!')
+```
+
+Also adds with adding at least one object `st.sidebar.[widget]`
+
+## Columns and tabs
+
+```python
+col1, col2 = st.columns(2)
+with col1:
+    st.image('./python-streamlit-files-main/basketball.jpg')
+with col2:
+    st.image('./python-streamlit-files-main/hockey.jpg')
+```
+
+```python
+tab1, tab2 = st.tabs(['Basketball', 'Hockey'])
+with tab1:
+    st.image('./python-streamlit-files-main/basketball.jpg')
+with tab2:
+    st.image('./python-streamlit-files-main/hockey.jpg')
+```
+
+## Expanders and containers
+
+```python
+with st.expander('See images'):
+    with st.container():
+        col1, col2 = st.columns(2)
+        with col1:
+            st.image('./python-streamlit-files-main/basketball.jpg')
+        with col2:
+            st.image('./python-streamlit-files-main/hockey.jpg')
+```
+
+## Empty widget
+
+```python
+with st.empty():
+    for seconds in range(5):
+        st.write(f'{seconds} seconds have passed')
+        time.sleep(1)
+    st.write(f'5 seconds have passed, it\' done')
+```
+
+## Multiple pages
+
+In the root directory add directory "pages" and add other scripts with streamlit python code. The page switcher appears at the top of the sidebar. 
